@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <p id="print"></p>
+        <script>
+            const getAlbums=()=>{
+                let url="https://jsonplaceholder.typicode.com/albums";
+                fetch(url).then((response)=>{return response.json();}).then((data)=>{
+                    data.map((value)=>{
+                        if(value.userId!==3 && value.userId!==5){
+                            document.getElementById("print").innerHTML+="<p>"+value.title+"</p>";
+                        }
+                    });
+                });
+            };
+            getAlbums();
+        </script>
+    </body>
+</html>
